@@ -16,8 +16,4 @@ Contents
 * img - all of the images
 * spps - vector drawings of sprites and background
 
-Acknowledgements
------------------
 
-1. Original Tutorial
-    * https://github.com/eriksk/gosututorials

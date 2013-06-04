@@ -20,5 +20,4 @@ Acknowledgements
 -----------------
 
 1. Original Tutorial
-    * https://github.com/eriksk/gosututorials - automatic!
-[GitHub](https://github.com/eriksk/gosututorials)
+    * https://github.com/eriksk/gosututorials

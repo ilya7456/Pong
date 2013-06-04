@@ -23,7 +23,7 @@ class Game <  Gosu::Window
         
         @back = Gosu::Image.new($window, "img/back.png", false)
         
-        @ball = Ball.new(150, 150, 2, 2, 0, "img/ball.png", 1, 40)
+        @ball = Ball.new(150, 150, 2, 0, 0, "img/ball.png", 1, 40)
         
         @player1 = Player.new(740, 100, 0, 0, 0, "img/paddle.png", 1, 130)
         @player1.control_set($player_1_controls)
@@ -98,18 +98,26 @@ class Ball < GameObject
         
         if @x >= $boundaries[1][0] - @size && @x <= $boundaries[1][0] - @size + 6
             if @y >= $boundaries[1][1] - @size && @y <= $boundaries[1][1] + 130 + @size
-                @vel_x *= -1.05 unless $hits == 25
+                if $hits <= 20
+                    @vel_x *= -1.05
+                else
+                    @vel_x *= -1
+                end
                 @vel_y += $paddle_vel_y[0] * 0.1
                 $hits += 1
-                move
+                @x = 739 - @size
                 return
             end
         elsif @x - 10 <= $boundaries[2][0] && @x - 10 >= $boundaries[2][0] - 6
             if @y >= $boundaries[2][1] - @size && @y <= $boundaries[2][1] + 130 + @size
-                @vel_x *= -1.05 unless $hits == 25
+                if $hits <= 20
+                    @vel_x *= -1.05
+                else
+                    @vel_x *= -1
+                end
                 @vel_y += $paddle_vel_y[1] * 0.1
                 $hits += 1
-                move
+                @x = 61
                 return
             end
         end
